@@ -2,7 +2,7 @@
 
 ## 1. Descripción del proyecto
 
-PhysMotion será una aplicación web educativa que permitirá analizar el movimiento de proyectiles a partir de videos y, si el tiempo lo permite, imágenes estáticas. El propósito es relacionar los conceptos de física estudiados en clase con herramientas de software que permitan realizar mediciones, cálculos y representaciones gráficas de manera interactiva.
+PhysMotion será una aplicación web educativa que permitirá analizar el movimiento de proyectiles a partir de videos. El propósito es relacionar los conceptos de física estudiados en clase con herramientas de software que permitan realizar mediciones, cálculos y representaciones gráficas de manera interactiva.
 
 Un caso de uso será el lanzamiento de un balón de baloncesto hacia una canasta. El usuario podrá cargar un video del lanzamiento, examinarlo fotograma por fotograma, seleccionar puntos relevantes de la trayectoria y establecer un sistema de referencia para estudiar el movimiento.
 
