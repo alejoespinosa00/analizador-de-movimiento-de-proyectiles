@@ -9,9 +9,12 @@ import ResultsPanel from '../components/analysis/ResultsPanel';
 import TrajectoryChart from '../components/charts/TrajectoryChart';
 import TimeSeriesChart from '../components/charts/TimeSeriesChart';
 import { useAnalysisStore } from '../hooks/useAnalysisStore';
+import { useRef } from 'react';
+
 
 export default function AnalyzerPage() {
   const video = useAnalysisStore((s) => s.video);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   if (!video) {
     return (
@@ -26,7 +29,7 @@ export default function AnalyzerPage() {
     <div className="grid gap-4 lg:grid-cols-3">
       <div className="space-y-4 lg:col-span-2">
         <Card>
-          <VideoPlayer />
+          <VideoPlayer videoRef={videoRef} />
           <FrameControls />
         </Card>
         <Card>
