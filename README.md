@@ -56,3 +56,48 @@ El sistema deberá comunicar claramente las limitaciones de las mediciones y evi
 Al finalizar el desarrollo, el equipo deberá contar con una aplicación web funcional, accesible mediante un enlace, que permita realizar un análisis de movimiento de principio a fin y que pueda utilizarse durante la exposición académica.
 
 El proyecto deberá demostrar la integración entre desarrollo de software, visualización de datos y conceptos de física, priorizando la precisión de los cálculos, la facilidad de uso y la claridad de los resultados.
+
+---
+
+## 8. Guía de desarrollo
+
+### Requisitos
+
+- Node.js 22 o superior
+- Git
+
+### Comandos
+
+```bash
+npm install        # instalar dependencias
+npm run dev        # servidor de desarrollo
+npm run test       # pruebas unitarias (Vitest)
+npm run lint       # ESLint
+npm run typecheck  # TypeScript
+npm run format     # Prettier
+npm run build      # build de producción
+```
+
+### Stack
+
+React 19 · TypeScript · Vite · Tailwind CSS 4 · React Router · Zustand · Recharts · Vitest · HTML5 Video/Canvas.
+
+### Estructura
+
+```text
+src/
+├── components/   layout/ video/ analysis/ charts/ ui/
+├── pages/        HomePage, AnalyzerPage, HowItWorksPage, AboutPage
+├── physics/      projectile.ts, measurements.ts, validation.ts  (lógica pura, sin React)
+├── hooks/        useAnalysisStore (estado global), useVideoFrame, useFps
+├── types/        analysis.ts (contratos de datos compartidos)
+└── utils/        coordinates.ts, format.ts
+tests/            pruebas de physics/ y utils/
+```
+
+### Reglas clave
+
+1. **Los puntos se guardan siempre en píxeles del video original**, nunca de la pantalla. Se convierten solo al dibujar (`utils/coordinates.ts`).
+2. **`src/physics/` no importa React** y toda función nueva lleva pruebas en `tests/`.
+3. **`src/types/analysis.ts` es el contrato común.** Si un cambio lo modifica, avisen al equipo antes de mergear.
+4. Todo resultado debe indicar su origen: medido, ingresado o estimado (`SourceBadge`).
