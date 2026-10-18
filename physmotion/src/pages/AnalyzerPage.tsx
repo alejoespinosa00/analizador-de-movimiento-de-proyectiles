@@ -10,7 +10,7 @@ import TrajectoryChart from '../components/charts/TrajectoryChart';
 import TimeSeriesChart from '../components/charts/TimeSeriesChart';
 import { useAnalysisStore } from '../hooks/useAnalysisStore';
 import { useRef } from 'react';
-
+import FrameStepper from '../components/video/FrameStepper';
 
 export default function AnalyzerPage() {
   const video = useAnalysisStore((s) => s.video);
@@ -29,8 +29,11 @@ export default function AnalyzerPage() {
     <div className="grid gap-4 lg:grid-cols-3">
       <div className="space-y-4 lg:col-span-2">
         <Card>
-          <VideoPlayer videoRef={videoRef} />
-          <FrameControls />
+          <div className="space-y-3">
+            <VideoPlayer videoRef={videoRef} />
+            <FrameStepper videoRef={videoRef} />
+            <FrameControls />
+          </div>
         </Card>
         <Card>
           <TrajectoryChart />
