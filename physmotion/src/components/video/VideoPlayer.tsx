@@ -56,9 +56,7 @@ export default function VideoPlayer({ videoRef, children }: VideoPlayerProps) {
       </div>
 
       <div className="flex items-center gap-4 text-sm">
-        <Button onClick={togglePlay}>
-          {isPlaying ? 'Pausar' : 'Reproducir'}
-        </Button>
+        <Button onClick={togglePlay}>{isPlaying ? 'Pausar' : 'Reproducir'}</Button>
         <span>{isPlaying ? 'Reproduciendo' : 'Pausado'}</span>
         <span>
           {currentTime.toFixed(2)} s / {duration.toFixed(2)} s
