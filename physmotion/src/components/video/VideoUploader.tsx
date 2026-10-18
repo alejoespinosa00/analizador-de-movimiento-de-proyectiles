@@ -110,7 +110,8 @@ export default function VideoUploader() {
       </Button>
 
       <p className="mt-4 text-xs text-ink/60">
-        Recomendado: MP4 con H.264. El video se procesa en tu navegador y no se sube a ningún servidor.
+        Recomendado: MP4 con H.264. El video se procesa en tu navegador y no se sube a ningún
+        servidor.
       </p>
 
       {warning && <p className="mt-3 text-amber-700">{warning}</p>}

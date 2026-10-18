@@ -57,10 +57,18 @@ export default function FrameStepper({ videoRef }: FrameStepperProps) {
 
   return (
     <div className="flex flex-wrap items-center gap-2 text-sm">
-      <Button variant="secondary" onClick={() => step(-10)}>−10</Button>
-      <Button variant="secondary" onClick={() => step(-1)}>−1</Button>
-      <Button variant="secondary" onClick={() => step(1)}>+1</Button>
-      <Button variant="secondary" onClick={() => step(10)}>+10</Button>
+      <Button variant="secondary" onClick={() => step(-10)}>
+        −10
+      </Button>
+      <Button variant="secondary" onClick={() => step(-1)}>
+        −1
+      </Button>
+      <Button variant="secondary" onClick={() => step(1)}>
+        +1
+      </Button>
+      <Button variant="secondary" onClick={() => step(10)}>
+        +10
+      </Button>
       <span>Fotograma {currentFrame}</span>
       <span>{time.toFixed(3)} s</span>
     </div>
