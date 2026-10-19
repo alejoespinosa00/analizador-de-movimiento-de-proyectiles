@@ -11,6 +11,7 @@ import TimeSeriesChart from '../components/charts/TimeSeriesChart';
 import { useAnalysisStore } from '../hooks/useAnalysisStore';
 import { useRef } from 'react';
 import FrameStepper from '../components/video/FrameStepper';
+import VideoCanvasOverlay from '../components/video/VideoCanvasOverlay';
 
 export default function AnalyzerPage() {
   const video = useAnalysisStore((s) => s.video);
@@ -30,7 +31,12 @@ export default function AnalyzerPage() {
       <div className="space-y-4 lg:col-span-2">
         <Card>
           <div className="space-y-3">
-            <VideoPlayer videoRef={videoRef} />
+
+            <VideoPlayer videoRef={videoRef}>
+              <VideoCanvasOverlay />
+            </VideoPlayer>
+
+
             <FrameStepper videoRef={videoRef} />
             <FrameControls />
           </div>

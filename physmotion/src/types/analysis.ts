@@ -1,6 +1,9 @@
 /** Origen de cada valor: el README exige diferenciarlos en los resultados. */
 export type DataSource = 'measured' | 'user' | 'estimated';
 
+/** Qué hace el siguiente clic sobre el video. null = ninguno (el canvas no recibe clics). */
+export type PickMode = 'origin' | 'scaleA' | 'scaleB' | 'measure' | null;
+
 /** Punto en píxeles del VIDEO ORIGINAL (no de la pantalla). */
 export interface PixelPoint {
   x: number;
@@ -27,7 +30,8 @@ export interface VideoInfo {
 }
 
 export interface ReferenceSystem {
-  origin: PixelPoint;
+  /** Píxel del video que es el (0, 0). null = el usuario todavía no lo eligió. */
+  origin: PixelPoint | null;
   /** Ángulo del eje X en radianes respecto a la horizontal de la imagen. Eje Y positivo hacia arriba. */
   axisAngle: number;
   scale: {

@@ -19,6 +19,10 @@ describe('coordinates', () => {
     expect(p?.y).toBeCloseTo(1);
   });
 
+  it('devuelve null sin origen', () => {
+    expect(pixelToPhysical({ x: 0, y: 0 }, { ...ref, origin: null })).toBeNull();
+  });
+
   it('devuelve null sin escala', () => {
     expect(pixelToPhysical({ x: 0, y: 0 }, { ...ref, scale: null })).toBeNull();
   });
