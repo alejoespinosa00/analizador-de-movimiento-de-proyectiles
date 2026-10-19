@@ -1,5 +1,6 @@
 import { useId, useState } from 'react';
 import { useAnalysisStore } from '../../hooks/useAnalysisStore';
+import Button from '../ui/Button';
 import SourceBadge from '../ui/SourceBadge';
 
 type Parsed = { value: number } | { error: string };
@@ -26,6 +27,7 @@ export default function FpsInput() {
 
   const fpsId = useId();
   const captureId = useId();
+  const hasPoints = useAnalysisStore((s) => s.measurements.length > 0);
 
   if (!video) return null;
 
@@ -73,6 +75,7 @@ export default function FpsInput() {
           step="any"
           className={inputClass}
           value={fpsText}
+          disabled={hasPoints}
           onChange={(e) => handleFps(e.target.value)}
           aria-invalid={fpsError !== ''}
           aria-describedby={fpsError ? `${fpsId}-error` : undefined}
@@ -81,6 +84,16 @@ export default function FpsInput() {
           <p id={`${fpsId}-error`} role="alert" className="text-red-600">
             {fpsError}
           </p>
+        )}
+        {hasPoints && (
+          <p className="text-xs text-ink/60">
+            Borra los puntos marcados para cambiar los FPS del video.
+          </p>
+        )}
+        {video.fpsSource !== 'user' && !hasPoints && (
+          <Button variant="secondary" onClick={() => updateVideo({ fpsSource: 'user' })}>
+            Confirmar {video.fps} fps
+          </Button>
         )}
       </div>
 

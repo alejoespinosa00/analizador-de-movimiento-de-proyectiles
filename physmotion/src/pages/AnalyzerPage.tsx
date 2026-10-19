@@ -1,7 +1,7 @@
 import Card from '../components/ui/Card';
 import VideoUploader from '../components/video/VideoUploader';
 import VideoPlayer from '../components/video/VideoPlayer';
-import FrameControls from '../components/video/FrameControls';
+import FpsInput from '../components/video/FpsInput';
 import ReferenceSystemPanel from '../components/analysis/ReferenceSystemPanel';
 import MeasurementTable from '../components/analysis/MeasurementTable';
 import ValidationPanel from '../components/analysis/ValidationPanel';
@@ -38,7 +38,7 @@ export default function AnalyzerPage() {
 
 
             <FrameStepper videoRef={videoRef} />
-            <FrameControls />
+            <FpsInput />
           </div>
         </Card>
         <Card>
