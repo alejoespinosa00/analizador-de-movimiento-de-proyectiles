@@ -12,7 +12,7 @@ export function metersPerPixel(ref: ReferenceSystem): number | null {
 /** Píxel del video → metros en el sistema de referencia (Y hacia arriba). */
 export function pixelToPhysical(p: PixelPoint, ref: ReferenceSystem): PhysicalPoint | null {
   const k = metersPerPixel(ref);
-  if (k === null) return null;
+  if (k === null || ref.origin === null) return null; 
   const dx = p.x - ref.origin.x;
   const dy = ref.origin.y - p.y; // la Y de la pantalla crece hacia abajo
   const cos = Math.cos(ref.axisAngle);

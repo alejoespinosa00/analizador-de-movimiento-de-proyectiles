@@ -38,11 +38,11 @@ export default function VideoPlayer({ videoRef, children }: VideoPlayerProps) {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="relative">
+      <div className="relative mx-auto w-fit max-w-full"> 
         <video
           ref={videoRef}
           src={objectUrl}
-          className="block h-auto max-w-full object-contain"
+          className="block h-auto max-h-[70vh] w-auto max-w-full object-contain"
           playsInline
           muted
           preload="auto"
