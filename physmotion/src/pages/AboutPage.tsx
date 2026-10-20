@@ -73,7 +73,7 @@ const TEAM: Member[] = [
     icon: OrbitIcon,
   },
   {
-    name: 'Alejandro Gonzalez',
+    name: 'Alejandro González',
     role: 'Ingeniería de Software',
     github: 'https://github.com/AlejandroGonzalez-23' ,
     icon: TerminalIcon,
