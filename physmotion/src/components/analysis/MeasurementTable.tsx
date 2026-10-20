@@ -1,4 +1,5 @@
 import { useAnalysisStore } from '../../hooks/useAnalysisStore';
+import { downloadCsv, measurementsToCsv } from '../../utils/exportCsv';
 import { formatNumber } from '../../utils/format';
 import Button from '../ui/Button';
 
@@ -86,9 +87,17 @@ export default function MeasurementTable() {
               </tbody>
             </table>
           </div>
-          <Button variant="ghost" onClick={clearMeasurements}>
-            Borrar todos
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="ghost" onClick={clearMeasurements}>
+              Borrar todos
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() => downloadCsv(measurementsToCsv(measurements))}
+            >
+              Descargar CSV
+            </Button>
+          </div>
         </>
       )}
     </div>
