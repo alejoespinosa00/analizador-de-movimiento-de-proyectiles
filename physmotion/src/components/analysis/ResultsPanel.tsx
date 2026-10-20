@@ -6,6 +6,7 @@ import type { DataSource, ResultValue } from '../../types/analysis';
 import { formatNumber } from '../../utils/format';
 import SourceBadge, { SourceLegend } from '../ui/SourceBadge';
 import ReliabilityWarnings from './ReliabilityWarnings';
+import ProcedureSteps from './ProcedureSteps';
 
 interface Row {
   label: string;
@@ -163,6 +164,8 @@ export default function ResultsPanel() {
           x e y en metros y t en segundos, desde el fotograma t = 0.
         </p>
       </section>
+
+      <ProcedureSteps results={results} />
 
       <SourceLegend />
     </div>
