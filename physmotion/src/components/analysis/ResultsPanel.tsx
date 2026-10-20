@@ -7,6 +7,7 @@ import { formatNumber } from '../../utils/format';
 import SourceBadge, { SourceLegend } from '../ui/SourceBadge';
 import ReliabilityWarnings from './ReliabilityWarnings';
 import ProcedureSteps from './ProcedureSteps';
+import SegmentsTable from './SegmentsTable';
 
 interface Row {
   label: string;
@@ -165,6 +166,7 @@ export default function ResultsPanel() {
         </p>
       </section>
 
+      <SegmentsTable />    
       <ProcedureSteps results={results} />
 
       <SourceLegend />
